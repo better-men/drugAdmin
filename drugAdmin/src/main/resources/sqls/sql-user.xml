@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sql_select_user_by_user_account">
+        <![CDATA[
+            select
+                sys_user.user_id,
+                user_account,
+                password,
+                phone,
+                email,
+                sys_role.menu_name,
+                creator,
+                create_time,
+                is_delete
+            from sys_user
+            left join sys_role
+            on sys_user.user_id = sys_role.user_id
+            where is_delete = 0 and user_account = ?
+	    ]]>
+    </entry>
+
+    <entry key="sql_select_user_by_user_id">
+        <![CDATA[
+            select
+                sys_user.user_id,
+                user_account,
+                password,
+                phone,
+                email,
+                sys_role.menu_name,
+                creator,
+                create_time,
+                is_delete
+            from sys_user
+            left join sys_role
+            on sys_user.user_id = sys_role.user_id
+            where is_delete = 0 and sys_user.user_id = ?
+	    ]]>
+    </entry>
+
+    <entry key="sql_like_user_by_user_account">
+        <![CDATA[
+            select
+                sys_user.user_id,
+                user_account,
+                password,
+                phone,
+                email,
+                sys_role.menu_name,
+                creator,
+                create_time,
+                is_delete
+            from sys_user
+            left join sys_role
+            on sys_user.user_id = sys_role.user_id
+            where is_delete = 0 and user_account like ?
+	    ]]>
+    </entry>
+
+    <entry key="sql_user_list">
+        <![CDATA[
+            select
+                sys_user.user_id,
+                user_account,
+                password,
+                phone,
+                email,
+                sys_role.menu_name,
+                creator,
+                create_time,
+                is_delete
+            from sys_user
+            left join sys_role
+            on sys_user.user_id = sys_role.user_id
+            where is_delete = 0
+	    ]]>
+    </entry>
+
+    <entry key="sql_insert_user">
+        <![CDATA[
+            INSERT INTO sys_user
+                (user_id,
+                    user_account,
+                    password,
+                    phone,
+                    email,
+                    creator,
+                    create_time,
+                    is_delete)
+            VALUES (?,?,?,?,?,?,?,?);
+	    ]]>
+    </entry>
+
+    <entry key="sql_update_user">
+        <![CDATA[
+            UPDATE sys_user SET
+                user_account=?,
+                password=?,
+                phone=?,
+                email=?,
+                creator=?,
+                create_time=?,
+                is_delete=?
+            where user_id = ?
+        ]]>
+    </entry>
+</properties>
