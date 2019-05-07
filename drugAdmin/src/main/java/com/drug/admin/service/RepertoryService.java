@@ -34,4 +34,13 @@ public class RepertoryService {
         return null;
     }
 
+    /**
+     * 新增一种库存  该操作用于库存表中没有某种库存，要新增该库存时，新增的库存数量为0
+     * @param repertory
+     * @return
+     */
+    public int insertRepertory(final Repertory repertory){
+        return 0;
+    }
+
 }
