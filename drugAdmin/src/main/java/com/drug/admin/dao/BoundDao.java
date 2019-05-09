@@ -53,9 +53,9 @@ public class BoundDao {
             bound.setRepertoryDesc(rs.getString("repertory_desc"));
             bound.setAddress(rs.getString("address"));
             bound.setBoundDesc(rs.getString("bound_desc"));
-            bound.setCreatedBy(rs.getString("created_by"));
-            bound.setCreatedTime(rs.getString("created_time"));
-            bound.setIsDeleted(rs.getInt("is_deleted"));
+            bound.setCreatedBy(rs.getString("bound.created_by"));
+            bound.setCreatedTime(rs.getString("bound.created_time"));
+            bound.setIsDeleted(rs.getInt("bound.is_deleted"));
             bound.setType(rs.getInt("type"));
             return bound;
         }

@@ -13,12 +13,12 @@
                 repertory_desc,
                 address,
                 bound_desc,
-                created_by,
-                created_time,
-                is_deleted,
+                bound.created_by,
+                bound.created_time,
+                bound.is_deleted,
                 type
             from bound,repertory
-            where is_deleted = 0 and type = ? and repertory.repertory_id = bound.repertory_id
+            where bound.is_deleted = 0 and type = ? and repertory.repertory_id = bound.repertory_id
         ]]>
     </entry>
 </properties>
