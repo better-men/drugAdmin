@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sql_bound_list">
+        <![CDATA[
+            select
+                bound_id,
+                price,
+                bound_num,
+                bound.repertory_id,
+                repertory_name,
+                repertory_class,
+                repertory_desc,
+                address,
+                bound_desc,
+                created_by,
+                created_time,
+                is_deleted,
+                type
+            from bound,repertory
+            where is_deleted = 0 and type = ? and repertory.repertory_id = bound.repertory_id
+        ]]>
+    </entry>
+</properties>

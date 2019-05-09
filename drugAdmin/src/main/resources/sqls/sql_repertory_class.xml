@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+    <entry key="sql_repertory_class_list">
+        <![CDATA[
+            select
+                class_id,
+                class_name,
+                class_desc
+            from repertory_class
+	    ]]>
+    </entry>
+    <entry key="sql_insert_repertory_class">
+        <![CDATA[
+            INSERT INTO repertory_class
+                   (class_id,
+                    class_name,
+                    class_desc)
+            VALUES (?,?,?);
+        ]]>
+    </entry>
+    <entry key="sql_delete_repertory_class">
+        <![CDATA[
+            DELETE FROM repertory_class WHERE class_id = ?
+        ]]>
+    </entry>
+</properties>

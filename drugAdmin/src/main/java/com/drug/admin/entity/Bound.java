@@ -5,11 +5,14 @@ public class Bound {
     private Double price;
     private Integer boundNum;
     private String repertoryId;
+    private String repertoryName;
+    private String repertoryClass;
+    private String repertoryDesc;
     private String address;
     private String boundDesc;
     private String createdBy;
     private String createdTime;
-    private String isDeleted;
+    private Integer isDeleted;
     private Integer type;
 
     public String getBoundId() {
@@ -76,11 +79,11 @@ public class Bound {
         this.createdTime = createdTime;
     }
 
-    public String getIsDeleted() {
+    public Integer getIsDeleted() {
         return isDeleted;
     }
 
-    public void setIsDeleted(String isDeleted) {
+    public void setIsDeleted(Integer isDeleted) {
         this.isDeleted = isDeleted;
     }
 
@@ -90,5 +93,29 @@ public class Bound {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public String getRepertoryName() {
+        return repertoryName;
+    }
+
+    public void setRepertoryName(String repertoryName) {
+        this.repertoryName = repertoryName;
+    }
+
+    public String getRepertoryClass() {
+        return repertoryClass;
+    }
+
+    public void setRepertoryClass(String repertoryClass) {
+        this.repertoryClass = repertoryClass;
+    }
+
+    public String getRepertoryDesc() {
+        return repertoryDesc;
+    }
+
+    public void setRepertoryDesc(String repertoryDesc) {
+        this.repertoryDesc = repertoryDesc;
     }
 }

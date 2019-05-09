@@ -1,19 +1,29 @@
 package com.drug.admin.service;
 
+import com.drug.admin.common.UUIDUtils;
+import com.drug.admin.dao.RepertoryDao;
 import com.drug.admin.entity.Repertory;
+import com.drug.admin.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Service
 public class RepertoryService {
+
+    @Autowired
+    private RepertoryDao repertoryDao;
 
     /**
      * 获取所有库存信息
      * @return
      */
     public List<Repertory> getRepertoryList(){
-        return null;
+        return repertoryDao.getRepertoryList();
     }
 
     /**
@@ -22,16 +32,16 @@ public class RepertoryService {
      * @return
      */
     public List<Repertory> getRepertoryByName(final String name){
-        return null;
+        return repertoryDao.getRepertoryByName(name);
     }
 
     /**
      * 根据库存分类筛选库存信息
-     * @param RepertoryClass
+     * @param repertoryClass
      * @return
      */
-    public List<Repertory> getRepertoryByClass(final String RepertoryClass){
-        return null;
+    public List<Repertory> getRepertoryByClass(final String repertoryClass){
+        return repertoryDao.getRepertoryByClass(repertoryClass);
     }
 
     /**
@@ -39,8 +49,26 @@ public class RepertoryService {
      * @param repertory
      * @return
      */
-    public int insertRepertory(final Repertory repertory){
-        return 0;
+    public int insertRepertory(final Repertory repertory, HttpServletRequest request){
+        String id = UUIDUtils.uuid();
+        repertory.setRepertoryId(id);
+        Date date = new Date();
+        SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        repertory.setCreatedTime(f.format(date));
+        User user = (User) request.getSession().getAttribute("USER_SESSION");
+        repertory.setCreatedBy(user.getUserAccount());
+        repertory.setIsDeleted(0);
+        return repertoryDao.insertRepertory(repertory);
+    }
+
+    /**
+     * 库存数量增加或减少
+     * @param id
+     * @param flag
+     * @return
+     */
+    public int addRepertoryAddAndReduce(final String id,final boolean flag){
+        return repertoryDao.addRepertoryAddAndReduce(id,flag);
     }
 
 }

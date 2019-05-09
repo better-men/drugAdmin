@@ -1,6 +1,8 @@
 package com.drug.admin.service;
 
+import com.drug.admin.dao.BoundDao;
 import com.drug.admin.entity.Bound;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -9,12 +11,15 @@ import java.util.List;
 @Service
 public class BoundService {
 
+    @Autowired
+    private BoundDao boundDao;
+
     public List<Bound> getInBoundList(){
-        return null;
+        return boundDao.getInBoundList();
     }
 
     public List<Bound> getOutBoundList(){
-        return null;
+        return boundDao.getOutBoundList();
     }
 
     /**
