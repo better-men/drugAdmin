@@ -76,20 +76,20 @@ public class RepertoryDao {
         });
     }
 
-    public int addRepertoryAddAndReduce(final String id,final boolean flag) {
+    public int addRepertoryAddAndReduce(final String id,final boolean flag,final Integer num) {
         final String sql = SQLProvider.getFromXml(SQL_UPDATE_REPERTORY_NUM);
         final Repertory repertory = this.getRepertoryById(id).get(0);
-        if (flag){
+        if (!flag){
             return jdbcTemplate.update(sql, new PreparedStatementSetter() {
                 public void setValues(PreparedStatement ps) throws SQLException {
-                    ps.setInt(1, repertory.getRepertoryNum()-1);
+                    ps.setInt(1, repertory.getRepertoryNum()-num);
                     ps.setString(2, id);
                 }
             });
         }else {
             return jdbcTemplate.update(sql, new PreparedStatementSetter() {
                 public void setValues(PreparedStatement ps) throws SQLException {
-                    ps.setInt(1, repertory.getRepertoryNum()+1);
+                    ps.setInt(1, repertory.getRepertoryNum()+num);
                     ps.setString(2, id);
                 }
             });

@@ -21,4 +21,18 @@
             where bound.is_deleted = 0 and type = ? and repertory.repertory_id = bound.repertory_id
         ]]>
     </entry>
+    <entry key="sql_bound_insert">
+        INSERT INTO repertory
+            (bound_id,
+                price,
+                bound_num,
+                repertory_id,
+                address,
+                bound_desc,
+                created_by,
+                created_time,
+                is_deleted,
+                type)
+        VALUES (?,?,?,?,?,?,?,?,?,?);
+    </entry>
 </properties>

@@ -57,18 +57,9 @@ public class RepertoryService {
         repertory.setCreatedTime(f.format(date));
         User user = (User) request.getSession().getAttribute("USER_SESSION");
         repertory.setCreatedBy(user.getUserAccount());
+        repertory.setRepertoryNum(0);
         repertory.setIsDeleted(0);
         return repertoryDao.insertRepertory(repertory);
-    }
-
-    /**
-     * 库存数量增加或减少
-     * @param id
-     * @param flag
-     * @return
-     */
-    public int addRepertoryAddAndReduce(final String id,final boolean flag){
-        return repertoryDao.addRepertoryAddAndReduce(id,flag);
     }
 
 }
