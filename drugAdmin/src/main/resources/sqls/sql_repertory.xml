@@ -28,7 +28,7 @@
                 created_time,
                 is_deleted
             from repertory
-            where is_deleted = 0 and repertory_name = ?
+            where is_deleted = 0 and repertory_name like ?
         ]]>
     </entry>
     <entry key="sql_select_repertory_by_id">
@@ -79,7 +79,7 @@
         <![CDATA[
             UPDATE repertory SET
                 repertory_num = ?
-            WHERE ID = ?
+            WHERE repertory_id = ?
         ]]>
     </entry>
 </properties>

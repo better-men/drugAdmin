@@ -22,7 +22,7 @@
         ]]>
     </entry>
     <entry key="sql_bound_insert">
-        INSERT INTO repertory
+        INSERT INTO bound
             (bound_id,
                 price,
                 bound_num,

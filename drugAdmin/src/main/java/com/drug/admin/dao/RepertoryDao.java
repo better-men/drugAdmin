@@ -46,7 +46,7 @@ public class RepertoryDao {
         final String sql = SQLProvider.getFromXml(SQL_SELECT_REPERTORY_BY_NAME);
         return jdbcTemplate.query(sql, new PreparedStatementSetter() {
             public void setValues(PreparedStatement ps) throws SQLException {
-                ps.setString(1, name);
+                ps.setString(1, "%"+name+"%");
             }
         }, new RepertoryMapper());
     }

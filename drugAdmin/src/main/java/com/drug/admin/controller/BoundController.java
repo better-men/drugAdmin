@@ -30,13 +30,13 @@ public class BoundController {
                 .setResultValue(boundService.getOutBoundList()).build();
     }
 
-    @RequestMapping(value = "/allInBound",produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
+    @RequestMapping(value = "/inBound",produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
     public ICommandResponse insertInBound(@RequestBody Bound bound, HttpServletRequest request){
         return new DataResponse.Builder<Integer>()
                 .setResultValue(boundService.insertInBound(bound,request)).build();
     }
 
-    @RequestMapping(value = "/allOutBound",produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
+    @RequestMapping(value = "/outBound",produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
     public ICommandResponse insertOutBound(@RequestBody Bound bound, HttpServletRequest request){
         return new DataResponse.Builder<Integer>()
                 .setResultValue(boundService.insertOutBound(bound,request)).build();
