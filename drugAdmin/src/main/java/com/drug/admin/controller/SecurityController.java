@@ -5,6 +5,7 @@ import com.drug.admin.common.response.DataResponse;
 import com.drug.admin.common.response.ICommandResponse;
 import com.drug.admin.entity.User;
 import com.drug.admin.service.SecurityService;
+import com.drug.admin.service.UserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +19,8 @@ public class SecurityController {
 
     @Autowired
     private SecurityService securityService;
+    @Autowired
+    private UserService userService;
     private final Logger log = LoggerFactory.getLogger(SecurityController.class);
 
     @RequestMapping(value = "/login", produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
@@ -44,6 +47,7 @@ public class SecurityController {
     public ICommandResponse getCurrentUser(HttpSession session){
         User user = (User) session.getAttribute("USER_SESSION");
         if (null!=user){
+            user = userService.selectUserByAccount(user.getUserAccount());
             return new DataResponse.Builder<User>().setResultValue(user).build();
         }else {
             return new DataResponse.Builder(402).build();
