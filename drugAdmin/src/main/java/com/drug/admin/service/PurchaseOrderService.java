@@ -39,6 +39,10 @@ public class PurchaseOrderService {
         return purchaseOrderDao.insertPurchaseOrder(purchaseOrder);
     }
 
+    public int updatePurchaseOrder(final PurchaseOrder purchaseOrder){
+        return purchaseOrderDao.updatePurchaseOrder(purchaseOrder);
+    }
+
     public int deletePurchasePlan(final String orderId){
         return purchaseOrderDao.deletePurchasePlan(orderId);
     }

@@ -39,6 +39,13 @@ public class PurchaseOrderController {
                 .setResultValue(result).build();
     }
 
+    @RequestMapping(value = "/update",produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
+    public ICommandResponse update(@RequestBody PurchaseOrder purchaseOrder){
+        int result = purchaseOrderService.updatePurchaseOrder(purchaseOrder);
+        return new DataResponse.Builder<Integer>()
+                .setResultValue(result).build();
+    }
+
     @RequestMapping(value = "/delete",produces = "application/json;charset=UTF-8", method = RequestMethod.POST)
     public ICommandResponse delete(@RequestBody JSONObject params){
         String id = params.getString("orderId");
