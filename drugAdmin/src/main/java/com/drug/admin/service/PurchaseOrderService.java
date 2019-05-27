@@ -35,6 +35,7 @@ public class PurchaseOrderService {
         User user = (User) request.getSession().getAttribute("USER_SESSION");
         purchaseOrder.setCreatedBy(user.getUserAccount());
         purchaseOrder.setIsDeleted(0);
+        purchaseOrder.setPurchaseStatus(0);
         return purchaseOrderDao.insertPurchaseOrder(purchaseOrder);
     }
 

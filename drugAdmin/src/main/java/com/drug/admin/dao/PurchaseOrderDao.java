@@ -49,9 +49,10 @@ public class PurchaseOrderDao {
                 ps.setInt(3, purchaseOrder.getPurchaseNum());
                 ps.setString(4,purchaseOrder.getPurchaseDate());
                 ps.setString(5,purchaseOrder.getSupplier());
-                ps.setString(6,purchaseOrder.getCreatedBy());
-                ps.setString(7,purchaseOrder.getCreatedTime());
-                ps.setInt(8,purchaseOrder.getIsDeleted());
+                ps.setInt(6, purchaseOrder.getPurchaseStatus());
+                ps.setString(7,purchaseOrder.getCreatedBy());
+                ps.setString(8,purchaseOrder.getCreatedTime());
+                ps.setInt(9,purchaseOrder.getIsDeleted());
             }
         });
     }
@@ -64,10 +65,11 @@ public class PurchaseOrderDao {
                 ps.setInt(2, purchaseOrder.getPurchaseNum());
                 ps.setString(3,purchaseOrder.getPurchaseDate());
                 ps.setString(4,purchaseOrder.getSupplier());
-                ps.setString(5,purchaseOrder.getCreatedBy());
-                ps.setString(6,purchaseOrder.getCreatedTime());
-                ps.setInt(7,purchaseOrder.getIsDeleted());
-                ps.setString(8, purchaseOrder.getOrderId());
+                ps.setInt(5, purchaseOrder.getPurchaseStatus());
+                ps.setString(6,purchaseOrder.getCreatedBy());
+                ps.setString(7,purchaseOrder.getCreatedTime());
+                ps.setInt(8,purchaseOrder.getIsDeleted());
+                ps.setString(9, purchaseOrder.getOrderId());
             }
         });
     }
@@ -86,6 +88,7 @@ public class PurchaseOrderDao {
             purchaseOrder.setPurchaseNum(rs.getInt("purchase_num"));
             purchaseOrder.setPurchaseDate(rs.getString("purchase_date"));
             purchaseOrder.setSupplier(rs.getString("supplier"));
+            purchaseOrder.setPurchaseStatus(rs.getInt("purchase_status"));
             purchaseOrder.setCreatedBy(rs.getString("created_by"));
             purchaseOrder.setCreatedTime(rs.getString("created_time"));
             return purchaseOrder;

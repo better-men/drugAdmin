@@ -9,6 +9,7 @@
             purchase_num,
             purchase_date,
             supplier,
+            purchase_status,
             created_by,
             created_time
             from purchase_order
@@ -23,6 +24,7 @@
             purchase_num,
             purchase_date,
             supplier,
+            purchase_status,
             created_by,
             created_time
             from purchase_order
@@ -37,10 +39,11 @@
         purchase_num,
         purchase_date,
         supplier,
+        purchase_status,
         created_by,
         created_time,
         is_deleted)
-        VALUES (?,?,?,?,?,?,?,?);
+        VALUES (?,?,?,?,?,?,?,?,?);
     </entry>
 
     <entry key="sql_purchase_order_update">
@@ -50,6 +53,7 @@
                 purchase_num = ?,
                 purchase_date = ?,
                 supplier = ?,
+                purchase_status = ?,
                 created_by = ?,
                 created_time = ?,
                 is_deleted = ?

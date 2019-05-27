@@ -6,6 +6,7 @@ public class PurchaseOrder {
     private Integer purchaseNum;
     private String purchaseDate;
     private String supplier;
+    private Integer purchaseStatus;
     private String createdBy;
     private String createdTime;
     private Integer isDeleted;
@@ -72,5 +73,13 @@ public class PurchaseOrder {
 
     public void setIsDeleted(Integer isDeleted) {
         this.isDeleted = isDeleted;
+    }
+
+    public Integer getPurchaseStatus() {
+        return purchaseStatus;
+    }
+
+    public void setPurchaseStatus(Integer purchaseStatus) {
+        this.purchaseStatus = purchaseStatus;
     }
 }
